@@ -5,82 +5,38 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tigusigalpa/coinmarketcap.svg?style=flat-square)](https://packagist.org/packages/tigusigalpa/coinmarketcap)
 [![License](https://img.shields.io/packagist/l/tigusigalpa/coinmarketcap.svg?style=flat-square)](https://packagist.org/packages/tigusigalpa/coinmarketcap)
 
-**Professional CoinMarketCap API v1 Integration for Laravel & PHP Applications**
+PHP client for the [CoinMarketCap API v1](https://coinmarketcap.com/api/documentation/v1/). Works standalone or with Laravel (service provider, facade, DI). Covers cryptocurrency listings, quotes, OHLCV, exchanges, global metrics, and price conversion.
 
-A modern, production-ready PHP Composer package that provides seamless integration with the CoinMarketCap cryptocurrency
-API. Built specifically for Laravel developers who need reliable access to real-time cryptocurrency prices, market data,
-exchange information, and blockchain analytics. This package simplifies cryptocurrency data integration, making it easy
-to build crypto portfolio trackers, trading dashboards, price alert systems, and blockchain analytics platforms.
+Built on PHP 8.1+ with strict types, PSR-18 HTTP client, PHPStan level 8, and PHPUnit tests.
 
-## 🌟 Why Choose This CoinMarketCap PHP Client?
+## Features
 
-Whether you're building a cryptocurrency portfolio tracker, a crypto trading bot, a blockchain analytics dashboard, or
-integrating real-time Bitcoin and Ethereum prices into your Laravel application, this package provides everything you
-need:
+### Core
 
-- **Production-Ready**: Battle-tested code with comprehensive error handling for cryptocurrency API integration
-- **Developer-Friendly**: Intuitive fluent interface designed specifically for Laravel and PHP developers
-- **Type-Safe**: Full PHP 8.1+ type hints and DTO models for cryptocurrency data structures
-- **Well-Documented**: Extensive documentation with real-world cryptocurrency integration examples
-- **Actively Maintained**: Regular updates to support the latest CoinMarketCap API features and Laravel versions
-- **Performance Optimized**: Efficient HTTP client implementation for fast cryptocurrency data retrieval
-- **Flexible Architecture**: Works standalone or integrates seamlessly with Laravel's service container
+- PHP 8.1+ with strict types, readonly properties, enums
+- PSR-18 HTTP client abstraction
+- Fluent `ClientBuilder` for configuration
+- Laravel service provider, facade, dependency injection
+- Type-safe DTO models for all responses
+- Custom exceptions for rate limits, auth errors, invalid requests
+- PHPUnit test suite, PHPStan level 8, PSR-12 code style
 
-## 📊 What Can You Build?
+### API coverage
 
-This CoinMarketCap API wrapper enables you to create:
+- Real-time prices and market cap rankings
+- Historical quotes and OHLCV data
+- Price conversion (crypto ↔ fiat)
+- Trending coins, gainers, losers
+- Cryptocurrency metadata (logos, links, descriptions)
+- Exchange listings, trading pairs, market pairs
+- Global market metrics (total market cap, BTC dominance)
 
-- **Cryptocurrency Portfolio Trackers** - Track Bitcoin, Ethereum, and 10,000+ cryptocurrencies in real-time
-- **Crypto Price Alert Systems** - Monitor cryptocurrency prices and send notifications
-- **Trading Dashboards** - Display live crypto market data, charts, and trading volumes
-- **Blockchain Analytics Platforms** - Analyze cryptocurrency market trends and dominance
-- **DeFi Applications** - Integrate cryptocurrency price feeds for DeFi protocols
-- **Crypto News Portals** - Show real-time cryptocurrency prices alongside news
-- **Exchange Comparison Tools** - Compare cryptocurrency prices across different exchanges
-- **Market Research Tools** - Access historical cryptocurrency data for analysis
-- **Crypto Converter Apps** - Convert between different cryptocurrencies and fiat currencies
-- **Investment Analysis Tools** - Track cryptocurrency market capitalization and performance
+### Developer experience
 
-## ✨ Key Features
-
-### Core Functionality
-
-- 🚀 **Modern PHP 8.1+** - Leverages latest PHP features including strict types, readonly properties, and enums
-- 🎯 **PSR-18 HTTP Client** - Standard-compliant HTTP client abstraction for maximum flexibility
-- 🏗️ **Fluent ClientBuilder** - Elegant, chainable API for easy client configuration
-- 📦 **Laravel Integration** - Native Service Provider, Facade, and dependency injection support
-- 🔒 **Type-safe DTO Models** - Strongly-typed data transfer objects for all cryptocurrency responses
-- ⚡ **Smart Exception Handling** - Custom exceptions for rate limits, authentication, and API errors
-- 🧪 **Full Test Coverage** - Comprehensive PHPUnit test suite for reliability
-- 📊 **PHPStan Level 8** - Maximum static analysis for code quality
-- 🎨 **PSR-12 Code Style** - Industry-standard PHP coding conventions
-
-### Cryptocurrency API Coverage
-
-- 📈 **Real-time Cryptocurrency Prices** - Get live Bitcoin, Ethereum, and altcoin prices
-- 💰 **Market Capitalization Data** - Access market cap rankings for 10,000+ cryptocurrencies
-- 📊 **Historical Price Data** - Retrieve historical cryptocurrency quotes and OHLCV data
-- 🔄 **Price Conversion Tools** - Convert between cryptocurrencies and fiat currencies
-- 🏆 **Trending Cryptocurrencies** - Track trending coins, gainers, and losers
-- 🏷️ **Cryptocurrency Metadata** - Get logos, descriptions, websites, and social links
-- 📉 **OHLCV Data** - Access Open, High, Low, Close, Volume data for technical analysis
-
-### Exchange & Market Data
-
-- 🏦 **Exchange Information** - Data for 300+ cryptocurrency exchanges
-- 💱 **Trading Pairs** - Access market pairs and trading volume data
-- 🌍 **Global Market Metrics** - Total market cap, Bitcoin dominance, and market statistics
-- 📊 **Exchange Rankings** - Sort exchanges by volume, liquidity, and other metrics
-
-### Developer Experience
-
-- 🔧 **Easy Installation** - Simple Composer installation for Laravel and standalone PHP
-- 📚 **Extensive Documentation** - Detailed guides and real-world code examples
-- 🧩 **Modular Architecture** - Clean separation of concerns for maintainability
-- 🔌 **Dependency Injection** - Full Laravel service container integration
-- ⚙️ **Configurable** - Flexible configuration via .env and config files
-- 🧪 **Sandbox Mode** - Test your integration without using production API credits
-- 🚦 **Rate Limit Handling** - Automatic detection and graceful handling of API limits
+- Composer install, works out of the box with Laravel
+- Sandbox mode for testing without production credits
+- Rate limit detection and handling
+- Configurable via `.env` and config files
 
 ## Requirements
 
@@ -88,53 +44,29 @@ This CoinMarketCap API wrapper enables you to create:
 - Laravel 10.x or 11.x
 - CoinMarketCap API key ([Get one here](https://coinmarketcap.com/api/))
 
-## 📦 Installation Guide
+## Installation
 
-### Step 1: Install via Composer
-
-Install the CoinMarketCap API client package using Composer in your Laravel or PHP project:
+### 1. Install via Composer
 
 ```bash
 composer require tigusigalpa/coinmarketcap
 ```
 
-The package will automatically register itself in Laravel applications through package auto-discovery.
+Laravel auto-discovery registers the service provider automatically.
 
-### Step 2: Get Your CoinMarketCap API Key
-
-Before you can use this package, you need a CoinMarketCap API key:
+### 2. Get your API key
 
 1. Visit [CoinMarketCap API Portal](https://coinmarketcap.com/api/)
-2. Sign up for a free account (Basic plan includes 10,000 API calls/month)
-3. Navigate to your API dashboard
-4. Copy your API key
+2. Sign up for an account (Basic plan: 10,000 calls/month, free)
+3. Copy your API key from the dashboard
 
-**API Plans Available:**
-
-- **Basic (Free)** - 10,000 calls/month, perfect for development and small projects
-- **Hobbyist** - 30,000 calls/month for personal crypto projects
-- **Startup** - 100,000 calls/month for growing applications
-- **Standard** - 300,000 calls/month for production applications
-- **Professional** - 1,000,000+ calls/month for enterprise solutions
-
-### Step 3: Publish Configuration (Laravel)
-
-For Laravel applications, publish the configuration file to customize settings:
+### 3. Publish config (Laravel)
 
 ```bash
 php artisan vendor:publish --tag=coinmarketcap-config
 ```
 
-This creates a `config/coinmarketcap.php` file in your Laravel application where you can configure:
-
-- API authentication settings
-- Base URL for production or sandbox environments
-- Request timeout values
-- Default conversion currencies
-
-### Step 4: Configure Environment Variables
-
-Add your CoinMarketCap API credentials to your `.env` file:
+### 4. Configure `.env`
 
 ```env
 # CoinMarketCap API Configuration
@@ -144,24 +76,13 @@ COINMARKETCAP_TIMEOUT=30
 COINMARKETCAP_USE_SANDBOX=false
 ```
 
-**Configuration Options Explained:**
-
-- `COINMARKETCAP_API_KEY` - Your CoinMarketCap API key (required)
-- `COINMARKETCAP_BASE_URL` - API endpoint URL (default: production)
-- `COINMARKETCAP_TIMEOUT` - Request timeout in seconds (default: 30)
-- `COINMARKETCAP_USE_SANDBOX` - Use sandbox for testing (default: false)
-
-### Step 5: Clear Configuration Cache (Laravel)
-
-After updating your `.env` file, clear Laravel's configuration cache:
+### 5. Clear config cache
 
 ```bash
 php artisan config:clear
 ```
 
-### Standalone PHP Installation
-
-For non-Laravel PHP projects, you can use the package without any configuration files:
+### Standalone PHP (without Laravel)
 
 ```php
 use Tigusigalpa\CoinMarketCap\ClientBuilder;
@@ -171,9 +92,7 @@ $client = (new ClientBuilder())
     ->build();
 ```
 
-### Verify Installation
-
-Test your installation with a simple API call:
+### Verify installation
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -289,11 +208,9 @@ $quote = $client->cryptocurrency()->quotesLatest([
 |---------------------|------------------------------|-----------------------------------|
 | `priceConversion()` | `/v2/tools/price-conversion` | Convert prices between currencies |
 
-## 💡 Real-World Usage Examples
+## Usage examples
 
-### Example 1: Build a Cryptocurrency Portfolio Tracker
-
-Track your crypto investments with real-time prices and calculate portfolio value:
+### Portfolio tracker
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -339,9 +256,7 @@ class CryptoPortfolioController extends Controller
 }
 ```
 
-### Example 2: Create a Crypto Price Alert System
-
-Monitor cryptocurrency prices and send notifications when thresholds are met:
+### Price alert system
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -388,9 +303,7 @@ class CryptoPriceAlertService
 }
 ```
 
-### Example 3: Display Top Cryptocurrencies by Market Cap
-
-Show the top 100 cryptocurrencies with real-time data:
+### Top cryptocurrencies by market cap
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -426,9 +339,7 @@ class CryptoMarketController extends Controller
 }
 ```
 
-### Example 4: Cryptocurrency Price Converter
-
-Build a multi-currency crypto converter:
+### Price converter
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -461,9 +372,7 @@ class CryptoConverterController extends Controller
 }
 ```
 
-### Example 5: Track Trending Cryptocurrencies
-
-Display trending coins and biggest gainers/losers:
+### Trending cryptocurrencies
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -494,9 +403,7 @@ class TrendingCryptoController extends Controller
 }
 ```
 
-### Example 6: Get Cryptocurrency Metadata and Information
-
-Fetch detailed information about cryptocurrencies including logos and social links:
+### Cryptocurrency metadata
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -515,9 +422,7 @@ foreach ($info['data'] as $symbol => $crypto) {
 }
 ```
 
-### Example 7: Analyze Global Cryptocurrency Market
-
-Get global market statistics and Bitcoin dominance:
+### Global market metrics
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -541,9 +446,7 @@ $marketStats = [
 return view('crypto.global-stats', compact('marketStats'));
 ```
 
-### Example 8: Compare Cryptocurrency Exchanges
-
-Get exchange data and compare trading volumes:
+### Exchange comparison
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -572,9 +475,7 @@ class ExchangeComparisonController extends Controller
 }
 ```
 
-### Example 9: Historical Price Analysis
-
-Retrieve historical cryptocurrency data for charts and analysis:
+### Historical price data
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -605,9 +506,7 @@ class HistoricalDataController extends Controller
 }
 ```
 
-### Example 10: Cache Cryptocurrency Data for Performance
-
-Implement caching to reduce API calls and improve performance:
+### Caching
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -640,11 +539,9 @@ class CachedCryptoService
     }
 }
 
-## 🛡️ Error Handling & Best Practices
+## Error handling
 
-The package provides comprehensive exception handling for all CoinMarketCap API errors:
-
-### Exception Types
+### Exception types
 
 | Exception | HTTP Code | Description | Common Causes |
 |-----------|-----------|-------------|---------------|
@@ -734,9 +631,7 @@ try {
 }
 ```
 
-### Advanced Error Handling with Retry Logic
-
-Implement automatic retry for rate limit errors:
+### Retry logic
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -771,9 +666,7 @@ class ResilientCryptoService
 }
 ```
 
-### Graceful Degradation
-
-Handle API failures gracefully with fallback data:
+### Fallback with cache
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -807,9 +700,7 @@ class CryptoServiceWithFallback
 }
 ```
 
-### Monitoring API Usage
-
-Track your API credit usage to avoid hitting limits:
+### Monitoring API usage
 
 ```php
 use Tigusigalpa\CoinMarketCap\Facades\CoinMarketCap;
@@ -872,12 +763,9 @@ class ApiUsageMonitor
 - Check your network connection
 - Use asynchronous requests for multiple API calls
 
-## 🧪 Sandbox Mode & Testing
+## Sandbox mode
 
-For testing and development purposes, you can use the CoinMarketCap sandbox environment without consuming production API
-credits:
-
-### Enable Sandbox via Environment
+### Via `.env`
 
 ```env
 COINMARKETCAP_USE_SANDBOX=true
@@ -901,18 +789,11 @@ $quotes = $client->cryptocurrency()->quotesLatest([
 ]);
 ```
 
-### Sandbox Benefits
+Sandbox uses the same response format as production, so you can test without spending credits.
 
-- **Free Testing**: Test your integration without using production API credits
-- **Same API Structure**: Identical response format as production
-- **Development Safety**: Experiment with different parameters safely
-- **Rate Limit Testing**: Test rate limit handling without affecting production quota
+## Performance tips
 
-## ⚡ Performance Optimization Tips
-
-### 1. Implement Smart Caching
-
-Cache cryptocurrency data to minimize API calls and improve response times:
+### Caching
 
 ```php
 use Illuminate\Support\Facades\Cache;
@@ -927,9 +808,7 @@ $cryptoData = Cache::remember('crypto_top_100', 300, function () {
 });
 ```
 
-### 2. Use Batch Requests
-
-Fetch multiple cryptocurrencies in a single API call:
+### Batch requests
 
 ```php
 // Good: Single API call for multiple cryptocurrencies
@@ -947,9 +826,7 @@ foreach (['BTC', 'ETH', 'BNB'] as $symbol) {
 }
 ```
 
-### 3. Queue Background Jobs
-
-Process cryptocurrency data updates in background jobs:
+### Background jobs
 
 ```php
 use Illuminate\Bus\Queueable;
@@ -980,9 +857,7 @@ class UpdateCryptoPricesJob implements ShouldQueue
 UpdateCryptoPricesJob::dispatch();
 ```
 
-### 4. Use Database for Historical Data
-
-Store historical cryptocurrency data in your database:
+### Store historical data locally
 
 ```php
 // Fetch once and store
@@ -1006,9 +881,7 @@ $chartData = HistoricalPrice::where('symbol', 'BTC')
     ->get();
 ```
 
-### 5. Optimize API Parameters
-
-Request only the data you need:
+### Request only needed fields
 
 ```php
 // Only fetch required fields
@@ -1019,25 +892,21 @@ $listings = CoinMarketCap::cryptocurrency()->listingsLatest([
 ]);
 ```
 
-## 🔍 Frequently Asked Questions (FAQ)
+## FAQ
 
 ### General Questions
 
 **Q: Is this package free to use?**
-A: Yes, this PHP package is free and open-source under MIT license. However, you need a CoinMarketCap API key, which has
-both free and paid plans.
+A: The package is open-source (MIT). You need a CoinMarketCap API key — the Basic plan is free (10,000 calls/month).
 
 **Q: What's the difference between this package and calling the API directly?**
-A: This package provides type-safe models, automatic error handling, Laravel integration, retry logic, and a clean
-developer-friendly interface that saves development time.
+A: Type-safe models, automatic error handling, Laravel integration, retry logic, and a clean interface. Saves boilerplate.
 
 **Q: Can I use this package outside of Laravel?**
-A: Absolutely! While optimized for Laravel, the package works perfectly in any PHP 8.1+ project using the standalone
-ClientBuilder.
+A: Yes. Use the standalone `ClientBuilder` in any PHP 8.1+ project.
 
 **Q: Does this support all CoinMarketCap API endpoints?**
-A: The package covers all major cryptocurrency, exchange, global metrics, and tools endpoints. We're continuously adding
-support for new endpoints.
+A: All major cryptocurrency, exchange, global metrics, and tools endpoints are covered.
 
 ### API & Authentication
 
@@ -1097,87 +966,7 @@ A: Cache cryptocurrency listings for 5 minutes, individual prices for 1 minute, 
 A: Yes, with proper caching and a suitable CoinMarketCap API plan. Consider upgrading to Professional plan for
 high-volume applications.
 
-## 🎯 Use Cases & Industries
-
-This CoinMarketCap API client is perfect for:
-
-### Financial Technology (FinTech)
-
-- **Cryptocurrency Exchanges** - Display real-time crypto prices and market data
-- **Trading Platforms** - Integrate live cryptocurrency quotes for trading
-- **Payment Processors** - Convert crypto to fiat currencies in real-time
-- **Wallet Applications** - Show portfolio values and price changes
-
-### Investment & Analytics
-
-- **Portfolio Management** - Track cryptocurrency investments and performance
-- **Market Analysis Tools** - Analyze crypto market trends and correlations
-- **Investment Advisors** - Provide clients with crypto market insights
-- **Research Platforms** - Access historical data for backtesting strategies
-
-### Media & Content
-
-- **Crypto News Websites** - Display live cryptocurrency prices alongside articles
-- **Financial Blogs** - Show real-time market data and price widgets
-- **YouTube Channels** - Create automated price tracking overlays
-- **Podcasts** - Access market data for show notes and discussions
-
-### E-commerce & Retail
-
-- **Online Stores** - Accept cryptocurrency payments with live conversion rates
-- **Pricing Tools** - Dynamic pricing based on cryptocurrency values
-- **Merchant Services** - Real-time crypto payment processing
-- **Gift Card Platforms** - Cryptocurrency-based gift card systems
-
-### Education & Research
-
-- **Educational Platforms** - Teach cryptocurrency trading and blockchain
-- **University Research** - Academic studies on cryptocurrency markets
-- **Trading Simulators** - Paper trading with real market data
-- **Crypto Courses** - Interactive learning with live data
-
-### Enterprise Solutions
-
-- **Corporate Treasury** - Manage company cryptocurrency holdings
-- **Accounting Software** - Track crypto assets for financial reporting
-- **Tax Platforms** - Calculate cryptocurrency gains and losses
-- **Compliance Tools** - Monitor crypto transactions and valuations
-
-## 🌐 Supported Cryptocurrencies
-
-Access data for 10,000+ cryptocurrencies including:
-
-**Major Cryptocurrencies:**
-
-- Bitcoin (BTC)
-- Ethereum (ETH)
-- Binance Coin (BNB)
-- Cardano (ADA)
-- Solana (SOL)
-- XRP (Ripple)
-- Polkadot (DOT)
-- Dogecoin (DOGE)
-- Avalanche (AVAX)
-- Polygon (MATIC)
-
-**DeFi Tokens:**
-
-- Uniswap (UNI)
-- Chainlink (LINK)
-- Aave (AAVE)
-- Maker (MKR)
-- Compound (COMP)
-
-**Stablecoins:**
-
-- Tether (USDT)
-- USD Coin (USDC)
-- Binance USD (BUSD)
-- DAI (DAI)
-
-**And thousands more...**
-
-## 🔗 Integration Examples
+## Integration examples
 
 ### WordPress Plugin Integration
 
@@ -1244,43 +1033,33 @@ class CryptoPriceWebhook
 }
 ```
 
-## 🧪 Testing & Quality Assurance
+## Testing
 
-This package includes comprehensive test coverage to ensure reliability:
-
-### Run Unit Tests
+### Run tests
 
 ```bash
 composer test
 ```
 
-### Run Tests with Coverage Report
+### Coverage report
 
 ```bash
 composer test-coverage
 ```
 
-This generates an HTML coverage report in the `coverage/` directory.
-
-### Run Static Analysis (PHPStan Level 8)
+### Static analysis (PHPStan level 8)
 
 ```bash
 composer phpstan
 ```
 
-PHPStan analyzes the code for type safety and potential bugs without running it.
-
-### Fix Code Style (PSR-12)
+### Code style (PSR-12)
 
 ```bash
 composer cs-fix
 ```
 
-Automatically formats code to follow PSR-12 standards.
-
-### Writing Tests
-
-When contributing, please include tests for new features:
+### Writing tests
 
 ```php
 namespace Tigusigalpa\CoinMarketCap\Tests\Unit;
@@ -1302,12 +1081,7 @@ class YourFeatureTest extends TestCase
 }
 ```
 
-## 🤝 Contributing to CoinMarketCap PHP Client
-
-We welcome contributions from the cryptocurrency and PHP development community! Whether you're fixing bugs, adding new
-CoinMarketCap API endpoints, improving documentation, or optimizing performance, your help is appreciated.
-
-### How to Contribute
+## Contributing
 
 1. **Fork the Repository**
    ```bash
@@ -1354,211 +1128,31 @@ CoinMarketCap API endpoints, improving documentation, or optimizing performance,
    git push origin feature/add-new-endpoint
    ```
 
-### Contribution Guidelines
+### Guidelines
 
-**Code Quality:**
-
-- Follow PSR-12 coding standards
-- Use PHP 8.1+ features (readonly properties, enums, etc.)
-- Add PHPDoc blocks to all public methods
-- Ensure PHPStan level 8 passes
-- Write descriptive variable and method names
-
-**Testing:**
-
+- Follow PSR-12, use PHP 8.1+ features, PHPDoc blocks on public methods
+- PHPStan level 8 must pass
 - Write unit tests for new features
-- Maintain or improve code coverage
-- Test edge cases and error scenarios
-- Use meaningful test method names
+- Update README and CHANGELOG as needed
 
-**Documentation:**
+## Security
 
-- Update README.md with new features
-- Add code examples for new functionality
-- Update CHANGELOG.md following Keep a Changelog format
-- Document all public API methods
+Do **not** create public GitHub issues for security vulnerabilities. Email: **sovletig@gmail.com**
 
-**Pull Requests:**
+## License
 
-- Provide clear description of changes
-- Reference related issues
-- Include before/after examples if applicable
-- Respond to code review feedback promptly
+MIT License — see [LICENSE](LICENSE).
 
-### Areas We Need Help With
-
-- 🆕 **New API Endpoints** - Add support for additional CoinMarketCap endpoints
-- 📚 **Documentation** - Improve examples and guides
-- 🐛 **Bug Fixes** - Fix reported issues
-- ⚡ **Performance** - Optimize API calls and caching
-- 🧪 **Testing** - Increase test coverage
-- 🌍 **Translations** - Translate documentation to other languages
-
-## 🔒 Security & Vulnerability Reporting
-
-Security is a top priority for cryptocurrency-related applications. We take all security vulnerabilities seriously.
-
-### Reporting Security Issues
-
-**DO NOT** create public GitHub issues for security vulnerabilities.
-
-Instead, please email security concerns to: **sovletig@gmail.com**
-
-Include the following information:
-
-- Description of the vulnerability
-- Steps to reproduce the issue
-- Potential impact assessment
-- Suggested fix (if available)
-
-### Security Best Practices
-
-When using this package:
-
-1. **Protect Your API Key**
-    - Never commit API keys to version control
-    - Store keys in `.env` file
-    - Use environment variables in production
-    - Rotate keys regularly
-
-2. **Validate User Input**
-   ```php
-   // Always validate cryptocurrency symbols
-   $allowedSymbols = ['BTC', 'ETH', 'BNB'];
-   if (!in_array($request->symbol, $allowedSymbols)) {
-       abort(400, 'Invalid cryptocurrency symbol');
-   }
-   ```
-
-3. **Implement Rate Limiting**
-   ```php
-   // Protect your endpoints
-   Route::middleware('throttle:60,1')->group(function () {
-       Route::get('/crypto/prices', [CryptoController::class, 'index']);
-   });
-   ```
-
-4. **Use HTTPS Only**
-    - All API calls are made over HTTPS
-    - Never downgrade to HTTP
-
-5. **Monitor API Usage**
-    - Track API credit consumption
-    - Set up alerts for unusual activity
-    - Log all API errors
-
-### Security Response Timeline
-
-- **Initial Response**: Within 48 hours
-- **Vulnerability Assessment**: Within 1 week
-- **Patch Release**: As soon as possible (critical issues within 24-48 hours)
-- **Public Disclosure**: After patch is released and users have time to update
-
-## 👥 Credits & Acknowledgments
-
-### Author
+## Author
 
 **Igor Sazonov**
-
 - GitHub: [@tigusigalpa](https://github.com/tigusigalpa)
 - Email: sovletig@gmail.com
 
-### Contributors
+## Links
 
-This project exists thanks to all the people who contribute:
-
-- [All Contributors](../../contributors)
-
-### Built With
-
-This package leverages these excellent open-source projects:
-
-- **Laravel** - The PHP Framework for Web Artisans
-- **Guzzle** - PHP HTTP client
-- **PHPUnit** - Testing framework
-- **PHPStan** - Static analysis tool
-- **PHP-CS-Fixer** - Code style fixer
-
-### Powered By
-
-- **CoinMarketCap API** - Cryptocurrency market data provider
-
-### Special Thanks
-
-- CoinMarketCap team for providing comprehensive cryptocurrency API
-- Laravel community for excellent framework and ecosystem
-- PHP-FIG for PSR standards
-- All developers who reported bugs and suggested improvements
-
-## 📄 License
-
-This CoinMarketCap API client is open-source software licensed under the **MIT License**.
-
-```
-MIT License
-
-Copyright (c) 2026 Igor Sazonov
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
-
-See the [LICENSE](LICENSE) file for the full license text.
-
-## 🔗 Useful Links & Resources
-
-### Official Documentation
-
-- **[CoinMarketCap API Documentation](https://coinmarketcap.com/api/documentation/v1/)** - Official API reference
-- **[CoinMarketCap API Portal](https://coinmarketcap.com/api/)** - Get your API key
-- **[API Status Page](https://status.coinmarketcap.com/)** - Check API uptime
-
-### Package Resources
-
-- **[GitHub Repository](https://github.com/tigusigalpa/coinmarketcap)** - Source code and issues
-- **[Packagist](https://packagist.org/packages/tigusigalpa/coinmarketcap)** - Composer package
-- **[Changelog](CHANGELOG.md)** - Version history and updates
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
-- **[Security Policy](SECURITY.md)** - Security guidelines
-
-### Cryptocurrency Resources
-
-- **[CoinMarketCap](https://coinmarketcap.com/)** - Cryptocurrency prices and charts
-- **[Bitcoin.org](https://bitcoin.org/)** - Learn about Bitcoin
-- **[Ethereum.org](https://ethereum.org/)** - Ethereum documentation
-
-### Development Tools
-
-- **[PHPStan](https://phpstan.org/)** - Static analysis tool
-- **[PHP-CS-Fixer](https://cs.symfony.com/)** - Code style fixer
-- **[PHPUnit](https://phpunit.de/)** - Testing framework
-- **[Composer](https://getcomposer.org/)** - Dependency manager
-
-## 🏷️ Keywords & Tags
-
-**Cryptocurrency:** Bitcoin, Ethereum, BTC, ETH, Altcoins, Crypto Prices, Cryptocurrency API, Crypto Market Data,
-Digital Currency, Blockchain
-
-**Technologies:** PHP, Laravel, Composer, PSR-18, HTTP Client, REST API, JSON API, Web Services
-
-**Use Cases:** Crypto Portfolio, Trading Bot, Price Tracker, Market Analysis, Cryptocurrency Exchange, DeFi, Crypto
-Wallet, Payment Gateway
-
-**Features:** Real-time Prices, Historical Data, Market Cap, Trading Volume, Price Conversion, OHLCV Data, Exchange
-Data, Global Metrics
-
----
-
-If this package helps your project, please consider giving it a ⭐
-on [GitHub](https://github.com/tigusigalpa/coinmarketcap)!
+- [CoinMarketCap API Documentation](https://coinmarketcap.com/api/documentation/v1/)
+- [CoinMarketCap API Portal](https://coinmarketcap.com/api/)
+- [GitHub Repository](https://github.com/tigusigalpa/coinmarketcap)
+- [Packagist](https://packagist.org/packages/tigusigalpa/coinmarketcap)
+- [Changelog](CHANGELOG.md)
