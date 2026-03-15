@@ -1,11 +1,13 @@
 # CoinMarketCap API Client for Laravel & PHP
 
-![CoinMarketCap PHP SDK](https://github.com/user-attachments/assets/23b58c63-2624-4689-9f21-2566184e4608)
+![CoinMarketCap PHP SDK](https://i.postimg.cc/MZQcSrmf/coinmarketcap-php-banner.jpg)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tigusigalpa/coinmarketcap.svg?style=flat-square)](https://packagist.org/packages/tigusigalpa/coinmarketcap)
 [![License](https://img.shields.io/packagist/l/tigusigalpa/coinmarketcap.svg?style=flat-square)](https://packagist.org/packages/tigusigalpa/coinmarketcap)
 
-PHP client for the [CoinMarketCap API v1](https://coinmarketcap.com/api/documentation/v1/). Works standalone or with Laravel (service provider, facade, DI). Covers cryptocurrency listings, quotes, OHLCV, exchanges, global metrics, and price conversion.
+PHP client for the [CoinMarketCap API v1](https://coinmarketcap.com/api/documentation/v1/). Works standalone or with
+Laravel (service provider, facade, DI). Covers cryptocurrency listings, quotes, OHLCV, exchanges, global metrics, and
+price conversion.
 
 Built on PHP 8.1+ with strict types, PSR-18 HTTP client, PHPStan level 8, and PHPUnit tests.
 
@@ -900,7 +902,8 @@ $listings = CoinMarketCap::cryptocurrency()->listingsLatest([
 A: The package is open-source (MIT). You need a CoinMarketCap API key — the Basic plan is free (10,000 calls/month).
 
 **Q: What's the difference between this package and calling the API directly?**
-A: Type-safe models, automatic error handling, Laravel integration, retry logic, and a clean interface. Saves boilerplate.
+A: Type-safe models, automatic error handling, Laravel integration, retry logic, and a clean interface. Saves
+boilerplate.
 
 **Q: Can I use this package outside of Laravel?**
 A: Yes. Use the standalone `ClientBuilder` in any PHP 8.1+ project.
@@ -1146,6 +1149,7 @@ MIT License — see [LICENSE](LICENSE).
 ## Author
 
 **Igor Sazonov**
+
 - GitHub: [@tigusigalpa](https://github.com/tigusigalpa)
 - Email: sovletig@gmail.com
 
